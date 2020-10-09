@@ -1,9 +1,13 @@
 {
-  "name": "week-3-express-generator",
-  "version": "0.0.0",
+  "name": "comp229-assignment1",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./server.js"
+  },
+  "engines": {
+    "node": "^12.00.0",
+    "npm": "^6.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
@@ -15,5 +19,18 @@
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
     "morgan": "~1.9.1"
-  }
+  },
+  "description": "assignment 1 comp229-fall2020",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurvir99/Assignment-1-COMP229.git"
+  },
+  "author": "Gurvir Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gurvir99/Assignment-1-COMP229/issues"
+  },
+  "homepage": "https://github.com/gurvir99/Assignment-1-COMP229#readme"
 }
