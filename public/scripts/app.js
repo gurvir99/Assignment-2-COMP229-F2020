@@ -1,4 +1,4 @@
-//const { event } = require("jquery");
+const { event } = require("jquery");
 
 //Iifee -- Immediately Invoked Function Expression
 (function(){
