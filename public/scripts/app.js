@@ -1,3 +1,10 @@
+
+//Assignment 1
+//Student: Gurvir Singh 301108852
+//Course: Web Application Development SEC.004  COMP229004-2020F
+//Date: October 09, 2020
+//-->
+
 const { event } = require("jquery");
 
 //Iifee -- Immediately Invoked Function Expression
