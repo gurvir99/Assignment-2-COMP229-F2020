@@ -18,19 +18,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
+    "mongoose": "^5.10.9",
     "morgan": "~1.9.1"
-  },
-  "description": "assignment 2 comp229-fall2020",
-  "main": "./server.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git"
-    
-  },
-  "author": "Gurvir Singh",
-  "license": "ISC",
-  "bugs": {
-    
   }
- 
 }
