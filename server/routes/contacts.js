@@ -5,22 +5,10 @@ let mongoose = require('mongoose');
 //connect to our Contacts Model
 let Contact = require('../models/contact');
 
+let contactController = require('../controllers/contacts');
+
 //GET Route for the Contacts List page - READ Operation
-router.get('/', (req,res,next) => {
-    Contact.find((err,contactList) => {
-       if(err)
-       {
-           return console.error(err);
-       }
-       else
-       {
-           //console.log(ContactList);
-
-           res.render('businessContacts/contactList', {title: 'Contact List', ContactList: contactList})
-       }
-
-    });
-});    
+router.get('/', contactController.displayContactList);    
 
 
 //GET Route for displaying the ADD page - CREATE Operation
@@ -51,67 +39,13 @@ router.post('/add', (req,res,next) => {
 });
 
 //GET Route for displaying the EDIT page - UPDATE Operation
-router.get('/edit/:id', (req,res,next) => {
-  let id = req.params.id;
-
-  Contact.findById(id,(err, contactToEdit) => {
-     if(err)
-     {
-         console.log(err);
-         res.end(err);
-     }
-     else
-     {
-         //show the edit view
-         res.render('businessContacts/edit', {title:'Edit Contact', contact:contactToEdit})
-     }
-  });
-
-});
+router.get('/edit/:id', contactController.displayEditPage);
 
 //POST Route for processing the EDIT page - UPDATE Operation
-router.post('/edit/:id', (req,res,next) => {
-    let id = req.params.id
-
-    let updatedContact = Contact({
-        "_id":id,
-        "name": req.body.name,
-        "number": req.body.number,
-        "email": req.body.email
-    });
-
-    Contact.updateOne({_id:id}, updatedContact, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //refresh the contact list
-            res.redirect('/contact-list');
-        }
-    });
-
-});
+router.post('/edit/:id', contactController.processEditPage);
 
 //GET to perform Deletion - DELETE Operation
-router.get('/delete/:id', (req,res,next) => {
- let id = req.params.id;
-
- Contact.remove({_id: id}, (err) => {
-    if(err)
-    {
-        console.log(err);
-        res.end(err);
-    }
-    else
-    {
-        //refresh the contact list
-        res.redirect('/contact-list');
-    }
- })
-});
+router.get('/delete/:id', contactController.performDelete);
 
 
 

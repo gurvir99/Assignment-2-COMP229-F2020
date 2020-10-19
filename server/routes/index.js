@@ -8,41 +8,29 @@
 var express = require('express');
 var router = express.Router();
 
+let indexController = require('../controllers/index');
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+router.get('/', indexController.displayHomePage);
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+router.get('/home', indexController.displayHomePage);
 
 /* GET Login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login'});
-});
+router.get('/login', indexController.displayLoginPage);
 
 /* GET About page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About Me'});
-});
+router.get('/about', indexController.displayAboutPage);
 
 /* GET Projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects'});
-});
+router.get('/projects', indexController.displayProjectsPage);
 
 /* GET Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('services', { title: 'Services'});
-});
+router.get('/services', indexController.displayServicesPage);
 
 /* GET Contact me page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact Me'});
-});
+router.get('/contact', indexController.displayContactPage);
 
 
 
