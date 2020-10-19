@@ -54,7 +54,7 @@ router.post('/add', (req,res,next) => {
 router.get('/edit/:id', (req,res,next) => {
   let id = req.params.id;
 
-  Book.findById(id,(err, contactToEdit) => {
+  Contact.findById(id,(err, contactToEdit) => {
      if(err)
      {
          console.log(err);
@@ -74,13 +74,13 @@ router.post('/edit/:id', (req,res,next) => {
     let id = req.params.id
 
     let updatedContact = Contact({
-        "id":id,
+        "_id":id,
         "name": req.body.name,
         "number": req.body.number,
         "email": req.body.email
     });
 
-    Book.updateOne({_id:id}, updatedContact, (err) => {
+    Contact.updateOne({_id:id}, updatedContact, (err) => {
         if(err)
         {
             console.log(err);

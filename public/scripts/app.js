@@ -5,6 +5,8 @@
 //Date: October 09, 2020
 //-->
 
+const { event } = require("jquery");
+
 //const { event } = require("jquery");
 
 //Iifee -- Immediately Invoked Function Expression
@@ -12,6 +14,19 @@
 
 function start(){
     console.log("Your app has started successfully...")
+    
+    let deleteButtons = document.querySelectorAll('.btn-danger')
+
+    for(button of deleteButtons)
+    {
+        button.addEventListener('click',(event)=>{
+            if(!confirm("Are you sure?"))
+            {
+              event.preventDefault();
+              window.location.assign('/contact-list');
+            }
+        })
+    }
 }
 
 window.addEventListener("load", start);
