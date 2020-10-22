@@ -110,6 +110,6 @@ app.use(function(err, req, res, next) {
   res.render('error' , { title: 'Error'});
 });
 
-User.register({username:'admin',  active: false}, 'admin');
+User.register({username:'admin', email: "admin@example.com", displayName: "Admin",  active: false}, 'admin');
 
 module.exports = app;

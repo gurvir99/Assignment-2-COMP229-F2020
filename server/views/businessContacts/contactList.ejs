@@ -7,9 +7,6 @@
  <div class="row">
     <div class="col-md-offset-1 col-md-10">
          <h1 class="text-center" style="margin-top: 2cm;"><%= title%> </h1>
-          <a href="/contact-list/add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Add a Contact
-        </a>
          <br>
         <table class="table table-bordered table-striped table-hover">
           <!--Header Row-->
@@ -17,8 +14,10 @@
                <th class="text-center col-4">Name</th>
                <th class="text-center col-2">Contact Number</th>
                <th class="text-center col-2">Email</th>
+               <% if(typeof displayName == 'string' && displayName) {%>
                <th class="text-center col-1"></th>
                <th class="text-center col-1"></th>
+               <% } %>
           </tr>
           <!--Repeatable template row-->
           <% for(let count = 0; count < ContactList.length; count++) { %>
@@ -26,7 +25,8 @@
                     <td class="text-center col-4"><%= ContactList[count].name  %></td>
                     <td class="text-center col-2"><%= ContactList[count].number  %></td>
                     <td class="text-center col-2"><%= ContactList[count].email  %></td>
-                     <td class="text-center col-1">
+                     <% if(typeof displayName == 'string' && displayName) {%>
+                    <td class="text-center col-1">
                       <a href="/contact-list/edit/<%= ContactList[count]._id  %>" class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i> Edit
                         </a>
@@ -36,6 +36,7 @@
                         <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>
+                    <% } %>
            </tr>   
           <% } %>
          </table>
