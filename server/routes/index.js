@@ -17,8 +17,6 @@ router.get('/', indexController.displayHomePage);
 /* GET home page. */
 router.get('/home', indexController.displayHomePage);
 
-/* GET Login page. */
-router.get('/login', indexController.displayLoginPage);
 
 /* GET About page. */
 router.get('/about', indexController.displayAboutPage);
@@ -32,6 +30,17 @@ router.get('/services', indexController.displayServicesPage);
 /* GET Contact me page. */
 router.get('/contact', indexController.displayContactPage);
 
+
+/* GET Route for displaying the Login page*/
+router.get('/login', indexController.displayLoginPage);
+
+/* POST Route for processing the Login page*/
+router.post('/login', indexController.processLoginPage);
+
+
+
+/* GET Route to perform UserLogout */
+router.get('/logout', indexController.performLogout);
 
 
 

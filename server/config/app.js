@@ -18,6 +18,17 @@ let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
 
+
+
+
+
+
+
+
+
+
+
+
 //database setup
 let mongoose = require('mongoose');
 let DB = require('./db');
@@ -65,6 +76,19 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// //passport user configuration
+
+// //create a User Model Instance
+let userModel = require('../models/user');
+let User = userModel.User;
+
+//implement a User Authentication Strategy
+passport.use(User.createStrategy());
+
+//serialize and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -85,5 +109,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error' , { title: 'Error'});
 });
+
+User.register({username:'admin',  active: false}, 'admin');
 
 module.exports = app;
