@@ -1,9 +1,7 @@
-
-//Assignment 1
+//Assignment 2
 //Student: Gurvir Singh 301108852
 //Course: Web Application Development SEC.004  COMP229004-2020F
-//Date: October 09, 2020
-//-->
+//Date: October 23, 2020 -->
 
 
 
